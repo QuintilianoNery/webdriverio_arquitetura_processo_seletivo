@@ -11,11 +11,12 @@ exports.setElementValueAndClick = async (element, text) => {
 
 exports.logout = async (menu, configuration, logout, ConformLogout, loginStore) => {
     //Logout sucessfully
+    await $(menu).waitForDisplayed({ timeout: 30000 })
     await $(menu).isDisplayed({ timeout: 10000 })
     await $(menu).click()
     await $(configuration).click()
     await $(logout).click()
     await $(ConformLogout).isDisplayed()
     await $(ConformLogout).click()
-    await $(loginStore).isDisplayed({ timeout: 30000 })
+    await $(loginStore).isDisplayed()
 };
