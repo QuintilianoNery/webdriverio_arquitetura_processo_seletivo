@@ -1,0 +1,5 @@
+/node_modules
+apps
+local.log
+app/android/
+*.apk
