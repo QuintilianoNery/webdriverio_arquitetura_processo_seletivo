@@ -1,22 +1,24 @@
 const { expect } = require('@wdio/globals');
 
 exports.login = async (btnSkip, btnLoginStore, assertLoginStore, inputWebsiteAddress, fixWebsiteAddress, btnContinue, inputEmailAddress, fixValidUser, btnLoginContinue, avatarIcon, inputPassword, fixPassword) => {
+    //Clicar no botão Skip Onboarding
     if (await $(btnSkip).isDisplayed()) {
         await $(btnSkip).click()
     }
-    //click button home
+    //Clicar no botão home
     await $(btnLoginStore).isDisplayed({ timeout: 30000 })
     await expect($(btnLoginStore)).toHaveText(assertLoginStore)
     await $(btnLoginStore).click()
-    //Set value Website  
+    //Preencher campo Website
+    await $(inputWebsiteAddress).waitForDisplayed({ timeout: 30000 })  
     await $(inputWebsiteAddress).isExisting()
     await $(inputWebsiteAddress).setValue(fixWebsiteAddress)
     await $(btnContinue).click()
-    //Set email address
+    //Preencher email
     await $(inputEmailAddress).isExisting()
     await $(inputEmailAddress).setValue(fixValidUser)
     await $(btnLoginContinue).click()
-    //Set password
+    //Preencher senha
     await $(avatarIcon).isDisplayed({ timeout: 30000 })
     await $(inputPassword).isExisting()
     await $(inputPassword).setValue(fixPassword)
@@ -24,7 +26,7 @@ exports.login = async (btnSkip, btnLoginStore, assertLoginStore, inputWebsiteAdd
 }
 
 exports.logout = async (btnMenu, btnConfiguration, btnLogout, btnConformLogout, btnLoginStore) => {
-    //Logout sucessfully
+    //Logout com sucesso
     await $(btnMenu).waitForDisplayed({ timeout: 30000 })
     await $(btnMenu).isDisplayed({ timeout: 10000 })
     await $(btnMenu).click()
