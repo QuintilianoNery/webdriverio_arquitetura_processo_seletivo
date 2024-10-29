@@ -10,7 +10,7 @@ exports.login = async (btnSkip, btnLoginStore, assertLoginStore, inputWebsiteAdd
     await expect($(btnLoginStore)).toHaveText(assertLoginStore)
     await $(btnLoginStore).click()
     //Preencher campo Website
-    await $(inputWebsiteAddress).waitForDisplayed({ timeout: 30000 })  
+    await $(inputWebsiteAddress).waitForDisplayed({ timeout: 30000 })
     await $(inputWebsiteAddress).isExisting()
     await $(inputWebsiteAddress).setValue(fixWebsiteAddress)
     await $(btnContinue).click()
