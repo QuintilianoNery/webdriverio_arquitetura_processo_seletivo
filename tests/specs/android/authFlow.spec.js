@@ -24,7 +24,7 @@ describe('Login', () => {
         )
     })
 
-    it.only('Realizar login com sucesso', async () => {
+    it('Realizar login com sucesso', async () => {
         //Inserindo informações para a função Login 
         await login(
             element.home.btnSkip,
