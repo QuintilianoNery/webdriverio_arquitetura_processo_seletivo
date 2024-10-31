@@ -19,12 +19,12 @@ describe('Login', () => {
             element.menu.btnMenu,
             element.menu.btnConfiguration,
             element.menu.configuration.btnLogout,
-            element.menu.configuration.btnConformLogout,
+            element.menu.configuration.btnConfirmLogout,
             element.home.btnLoginStore
         )
     })
 
-    it.only('Realizar login com sucesso', async () => {
+    it('Realizar login com sucesso', async () => {
         //Inserindo informações para a função Login 
         await login(
             element.home.btnSkip,
@@ -67,9 +67,11 @@ describe('Logout', () => {
             element.menu.btnMenu,
             element.menu.btnConfiguration,
             element.menu.configuration.btnLogout,
-            element.menu.configuration.btnConformLogout,
+            element.menu.configuration.btnConfirmLogout,
+            assertion.menu.configuration.confirmLogout,
             element.home.btnLoginStore
         )
+        await takeScreenshot();
     });
 });
 
