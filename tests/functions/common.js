@@ -10,3 +10,9 @@ exports.setElementValueAndClick = async (element, text) => {
     await $(element.login.inputWebsiteAddress).setValue(fixture.websiteAddress)
     await $(element.login.btnContinue).click()
 };
+
+exports.takeScreenshot = async () => {
+    const timestamp = new Date().toISOString().replace(/[^0-9]/g, '');
+    const filename = `screenshot-${timestamp}.png`;
+    await browser.saveScreenshot(`./screenshots/${filename}`);    
+};
