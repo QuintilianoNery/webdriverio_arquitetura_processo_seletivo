@@ -1,13 +1,24 @@
 const { join } = require('path')
+
+const platformName = 'Android'
+const app = 'storage:filename=woocommerce.apk'
+const build = 'appium-build-woocommerce' 
+const deviceName = 'Android GoogleAPI Emulator'
+const deviceVersion = '10'
+const automationName = 'UiAutomator2'
+const user = 'oauth-quintiliano1995-c9d81'
+const key = 'da4e95fb-a740-4e67-ad58-aede786cca11'
+const hostname = 'ondemand.us-west-1.saucelabs.com'
+
 exports.config = {
     //
     // ====================
-    // Runner Configuration
+    // Configuration
     // ====================
 
-    user: 'oauth-quintiliano1995-c9d81',
-    key: 'da4e95fb-a740-4e67-ad58-aede786cca11',
-    hostname: 'ondemand.us-west-1.saucelabs.com',
+    user: `${user}`,
+    key: `${key}`,
+    hostname: `${hostname}`,
     port: 443,
 
     path: '/wd/hub',
@@ -19,14 +30,14 @@ exports.config = {
     reporters: ['spec'],
     capabilities: [
         {
-            platformName: 'Android',
-            'appium:app': 'storage:filename=woocommerce.apk',
-            'appium:deviceName': 'Samsung.*',
-            'appium:platformVersion': '10',
-            'appium:automationName': 'UiAutomator2',
+            platformName: `${platformName}`,
+            'appium:app': `${app}`,
+            'appium:deviceName': `${deviceName}`,
+            'appium:platformVersion': `${deviceVersion}`,
+            'appium:automationName': `${automationName}`,
             'appium:disableIdLocatorAutocompletion': 'true',
             'sauce:options': {
-                build: 'appium-build-woocommerce',
+                build: `Build: ${build}`,
                 name: 'Ebac - WooCommerce',
                 deviceOrientation: 'PORTRAIT',
                 appiumVersion: '2.0.0',

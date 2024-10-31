@@ -14,7 +14,7 @@
 9. [Configurar os Capabilitys](#9-configurar-os-capabilitys)
 10. [Executar o teste de login localmente](#10-executar-o-teste-de-login-localmente)
 11. [Executar o teste de login no Sauce Labs](#11-executar-o-teste-de-login-no-sauce-labs)
-11. [Link do Board com os cenários de testes](#12)
+11. [Link do Board com os cenários de testes](#12-link-do-board-com-os-cenários-de-testes)
 
 ---
 
