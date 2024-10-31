@@ -19,6 +19,7 @@ exports.elementsAndroid = {
             subTitleMyStoreHomePage: 'android=new UiSelector().resourceIdMatches(".*:id/toolbar_subtitle")',
             myStoreStats: 'android=new UiSelector().resourceIdMatches(".*:id/my_store_stats_container")',
             navigationButtons: 'android=new UiSelector().resourceIdMatches(".*:id/bottom_nav")',
+            textEbacStore: '//android.widget.TextView[@text="EBAC - Shop"]',
         },
         menu: {
             btnMenu: '//android.widget.FrameLayout[@content-desc="Menu"]/android.widget.FrameLayout/android.widget.ImageView',
@@ -30,3 +31,6 @@ exports.elementsAndroid = {
         },
     }
 }
+
+
+

@@ -10,7 +10,7 @@ const { assertionProductionAndroid } = require("../fixtures/android/assertions/a
 const { assertionStagingIos } = require("../fixtures/ios/assertions/assertions.staging.js")
 const { assertionProductionIos } = require("../fixtures/ios/assertions/assertions.production.js")
 
-// Global variables
+// Variáveis Globais
 const platform = 'android'
 const application = 'ebac'
 const environment = 'production'

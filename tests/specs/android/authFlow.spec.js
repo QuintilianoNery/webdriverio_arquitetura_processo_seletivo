@@ -1,5 +1,6 @@
 const { loadElements, loadFixtures, loadAssertions } = require("../../functions/loadFunctions.js");
 const { login, logout } = require("../../functions/authFunctions.js");
+const {checkElementAndVisibleText} = require("../../functions/common.js");
 
 // Variáveis globais
 const element = loadElements()
@@ -39,6 +40,7 @@ describe('Login', () => {
             element.login.inputPassword,
             fixture.login.valid.password,
         )
+        await checkElementAndVisibleText(element.myStoreHomePage.textEbacStore, assertion.myStoreHomePage.subTitleMyStoreHomePage);
     });
 });
 
