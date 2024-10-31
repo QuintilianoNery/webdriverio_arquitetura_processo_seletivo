@@ -3,3 +3,6 @@ apps
 local.log
 app/android/
 *.apk
+/allure-report
+/allure-results
+*.png

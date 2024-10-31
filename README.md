@@ -1,157 +1,132 @@
-<h1 align="center">Automation Teste Mobile Appium Woocommerce</h1>
+<h1 align="center">Automation Teste Mobile Appium WooCommerce</h1>
 
 ---
 
-## Configurando o Ambiente :gear:
+## Sumário
+1. [Configuração do Ambiente](#configurando-o-ambiente)
+2. [Instalação do Cmder (Opcional)](#2-instalação-do-cmder-opcional)
+3. [Instalação do Java JDK 8 ou Superior](#3-instalação-do-java-jdk-8-ou-superior)
+4. [Instalação do Android Studio](#4-instalação-do-android-studio)
+5. [Instalação do Node.js](#5-instalação-do-nodejs)
+6. [Instalação do Appium de forma global](#6-instalação-do-appium-de-forma-global)
+7. [Configurar um dispositivo virtual no AVD Manager no Android Studio](#7-configurar-um-dispositivo-virtual-no-avd-manager-no-android-studio)
+8. [Instalação do Appium Desktop](#8-instalação-do-appium-desktop)
+9. [Configurar os Capabilitys](#9-configurar-os-capabilitys)
+10. [Executar o teste de login localmente](#10-executar-o-teste-de-login-localmente)
+11. [Executar o teste de login no Sauce Labs](#11-executar-o-teste-de-login-no-sauce-labs)
+11. [Link do Board com os cenários de testes](#12-link-do-board-com-os-cenários-de-testes)
 
-### Instalação do VScode e extensões sugeridas
-* [Download Vscode](https://code.visualstudio.com/download)
-* [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
-* [WebdriverIO](https://webdriver.io/)
-* [Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme)
+---
 
-### Instalação versão full cmder
-* [Download cmder](https://cmder.net/)
-```
-* Configurar dentro da variável de ambiente(variáveis do sistema) Path  o caminho completo da pasta do cmeder EX.: C:\cmder\vendor\git-for-windows\bin 
-* Configurar dentro da variável de ambiente(variáveis do sistema) Path  o caminho completo da pasta do cmeder EX.: C:\cmder\vendor\git-for-windows\usr\bin
-* OBS.: Esta ferramenta é opcional, pois alguns comandos linux não rodam no cmd
-```
+## Configurando o Ambiente
 
-### Instalação Java JDK 8 ou superior caso tenha
-* [Download Java JDK](https://www.oracle.com/br/java/technologies/javase/javase8-archive-downloads.html)
-```
-* OBS.: Deve-se realizar o login para conseguir baixar o JDK
-        * E deve-se instalar também o java JRE que vem junto com o JDK
-        * Conferir se o java foi instalado corretamente java -version
-```
-```
-* Configurações de ambiente com o java 8
-    * Criar variáveis de ambiente em variáveis do SISTEMA com o caminho completo das pastas
-        * Nome da Variável: JAVA_HOME
-        * valor da variável: C:\Program Files\Java\jdk1.8.0_202
+### 1. Instalação do VScode e Extensões
+- [Download VScode](https://code.visualstudio.com/download)
+- Extensões recomendadas:
+  - [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
+  - [WebdriverIO](https://webdriver.io/)
+  - [Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme)
 
-    
-    * Adicionar configurações na variável path do sistema
-        * %JAVA_HOME%\bin
-```
-```
-* Para testar se as configurações estão OK digite os comandos no CMD, deve-se aparecer o caminho completo do arquivo ou pasta
-    * echo %JAVA_HOME%
-    * echo %PATH%
-```
+### 2. Instalação do Cmder (Opcional)
+- [Download Cmder](https://cmder.net/)
+- Configure nas Variáveis de Ambiente (`Path`) os caminhos:
+  - `C:\cmder\vendor\git-for-windows\bin`
+  - `C:\cmder\vendor\git-for-windows\usr\bin`
 
-### Instalação Android Studio
-[Android Studio](https://developer.android.com/studio)
-```
-OBS.: Manter marcado na instalação a opção Android Virtual Device 
-* Marcar na instalação do not import settings
-```
+### 3. Instalação do Java JDK 8 ou Superior
+- [Download Java JDK](https://www.oracle.com/br/java/technologies/javase/javase8-archive-downloads.html)
+- **Variáveis de Ambiente**:
+  - `JAVA_HOME`: caminho do JDK (ex.: `C:\Program Files\Java\jdk1.8.0_202`)
+  - Adicione `%JAVA_HOME%\bin` ao `Path`.
+- **Testar se as configurações estão OK**:
+  - No terminal, ao inserir os comandos `echo %JAVA_HOME%` e `echo %PATH%`, deve ser mostrado o caminho completo das pastas java que foram configuradas
 
-```
-* Configurações de ambiente Android
-    * Criar variáveis de ambiente em variáveis do SISTEMA com o caminho completo das pastas
-        * Nome da Variável: ANDROID_HOME
-        * valor da variável: C:\Users\[SEU USUÁRIO AQUI]\AppData\Local\Android\Sdk
-    
-    * Adicionar configurações na variável path do sistema
-        * %ANDROID_HOME%\platform-tools
-        * %ANDROID_HOME%\tools
-        * %ANDROID_HOME%\tools\lib
-        * %ANDROID_HOME%\tools\bin
-```
+### 4. Instalação do Android Studio
+- [Download Android Studio](https://developer.android.com/studio)
+- Mantenha marcada a opção "Android Virtual Device" durante a instalação.
+- Marcar na instalação do not import settings.
 
-```
-* Para testar se as configurações estão OK digite os comandos no CMD, deve-se aparecer o caminho completo do arquivo ou pasta
-    * echo %ANDROID_HOME%
-    * echo %PATH%
-```
+- **Configurações de Ambiente Android**:
+  - Criar variáveis de ambiente em variáveis do SISTEMA com o caminho completo das pastas
+    - Nome da Variável: `ANDROID_HOME`
+    - valor da variável: `C:\Users\[SEU USUÁRIO AQUI]\AppData\Local\Android\Sdk`
+  - Adicionar configurações na variável path do sistemaAdicionar configurações na variável path do sistema
+  
+    - `%ANDROID_HOME%\platform-tools`
+    - `%ANDROID_HOME%\tools`
+    - `%ANDROID_HOME%\tools\lib`
+    - `%ANDROID_HOME%\tools\bin`
 
-### Instalação Node
-* [Node.js](https://nodejs.org/en/)
-```
-* Adicionar configurações na variável path do sistema
-OBS.: Verificar se foi criada com a instalação
-    * C:\Program Files\nodejs\
-```
+- **Testar se as configurações estão OK**:
+    - No terminal, ao inserir os comandos `echo %ANDROID_HOME%` e `echo %PATH%`, deve ser mostrado o caminho completo das pastas java que foram configuradas
 
-```
-* Conferir se o node e npm foi instalado 
-* no cmd:node --version
-* no cmd:npm --version
-```
+### 5. Instalação do Node.js
+  - [Download Node.js](https://nodejs.org/en/)
+    - Adicionar configurações na variável path do sistema: `C:\Program Files\nodejs\`
+    - Mas verifique antes se não foi criada com a instalação
 
-### Instalação do Appium de forma global
-* [Node.js](https://nodejs.org/en/)
-```
-* no cmd:npm install appium -g
-* no cmd:npm install appium-doctor -g
-```
+- **Confirme a Instalação**:
+  - Execute no terminal `node --version`
+  - Execute no terminal `npm --version`
+ 
+ ### 6. Instalação do Appium de forma global
+  - Execute no terminal `npm install appium -g`
+  - Execute no terminal `npm install appium-doctor -g`
 
-```
-* Comandos para iniciar o servidor Appium :gear:
-* no cmd:appium
-Obs.: isso irá iniciar o servidor
+- **Iniciar o servidor Appium**
+  - Comandos para iniciar o servidor Appium `appium`
+  - comando realiza um diagnóstico no computador, para identificar se está preparado para criar sessões appium no android, caso não esteja, será mostrado erro
+    - No terminal execute `appium-doctor --android`
 
-* no cmd:appium-doctor --android
-Obs.: Esse comando realiza um diagnóstico no computador, para identificar se está preparado para criar sessões appium no android, caso não tenha erro, está OK
-```
-Obs2.: Provavelmente, ao executar o comando appium-doctor --android, será apresentado erro, por isso, deve-se marcar as opções das duas imagens abaixo 
-* [Android SDK](https://i.stack.imgur.com/TIPNE.png)
-* [Android SDK 2](https://i.stack.imgur.com/a0mtv.png)
+- **Configuração no Android Studio**
+  - Caso ocorra erro ao executar o comando `appium-doctor --android`, deve-se marcar as opções das duas imagens abaixo
+    -  [Android SDK](https://i.stack.imgur.com/TIPNE.png)
+    - [Android SDK 2](https://i.stack.imgur.com/a0mtv.png)
 
-### Instalação do Appium desktop
-* [Appium desktop](https://appium.io/)
-* [Appium-Inspector](https://github.com/appium/appium-inspector/releases)
+ ### 7. Configurar um dispositivo virtual no AVD Manager no Android Studio
 
-```
-* OBS.: * Baixar a versão referente ao seu sistema
-        * Caso tenha permissão, instale para todos os usuários
-        * Após instalar, apenas clique em start server na página do appium e marque as permissões do firewall
-```
+- Abra o android studio
+- Vá na opção AVD Manager
+- Clique em Create Virtual Device
+- Selecione o tipo de dispositivo Pixel 2 com a opção de play store * Mais leve para executar no computador
+- Selecione a versão de imagem do android * Sugiro Instalar a release Android V9 Pie
+- Depois de instalado, pode clicar em play para executar, mas antes execute o passo seguinte
+- Para resolver um problema, clique em opções da coluna Actions e selecione Wipe Data, para resetar o Android com a as configurações padrão do android 
 
+ ### 8. Instalação do Appium Desktop
+- Baixe o [Appium desktop](https://appium.io/)
+- Baixe o [Appium-Inspector](https://github.com/appium/appium-inspector/releases)
 
-### Configurar um dispositivo virtual no AVD Manager no Android Studio
-```
-* Abra o android studio
-* Vá na opção AVD Manager
-* Clique em Create Virtual Device
-* Selecione o tipo de dispositivo Pixel 2 com a opção de play store * Mais leve para executar no computador
-* Selecione a versão de imagem do android * Sugiro Instalar a release Android V9 Pie
-* Depois de instalado, pode clicar em play para executar, mas antes execute o passo seguinte
-* Para resolver um problema, clique em opções da coluna Actions e selecione Wipe Data, para resetar o Android com a as configurações padrão do android 
-```
+### 9. Configurar os Capabilitys
+- Entenda como funciona as configurações dos capabilitys em: [Appium Documentation > Desired Capabilities](https://appium.io/docs/en/writing-running-appium/caps/)
 
+- **Comando para conseguir pegar o ID e o Nome do Device físico para usar no capability**
+  - Execute no terminal `adb devices`
+  - Execute no terminal `adb devices -l`
 
-### Configurar os capabilits 
-* [Appium Documentation > Desired Capabilities](https://appium.io/docs/en/writing-running-appium/caps/)
-
-### comandos para pegar id e nome
-```
-adb devices
-adb devices -l
-```
-
-### Exemplo de Capability Set
+- **Exemplo de Capability para o Appium Inspector**
 ```
 {
-  "automationName": "UiAutomator2",
-  "deviceName": "Android",
   "platformName": "Android",
-  "appActivity": "com.whatsapp.Main",
-  "appPackage": "com.whatsapp",
-  "udid": "ID DO SEU TELEFONE AQUI",
-  "noReset": true
+  "appium:platformVersion": "13",
+  "appium:deviceName": "samsung-galaxy-s20",
+  "appium:automationName": "UiAutomator2",
+  "appium:appPackage": "com.woocommerce.android",
+  "appium:appActivity": "com.woocommerce.android.ui.main.MainActivity",
+  "appium:noReset": "true",
+  "appium:udid": "SEU ID DO DEVICE ANDROID",
+  "appium:appWaitActivity": "com.woocommerce.android.ui.*"
 }
 ```
 
+### 10. Executar o teste de login localmente
+   -  Após ter configurado o ID do dispositivo no arquivo wdio.conf.js. execute o seguinte comando no terminal:
+      - `npm run local:test`
 
-### Executar o teste de login localmente
-```
-npm run local:test
-```
+### 11. Executar o teste de login no Sauce Labs
+   -  Para executar o testes no device farm execute o seguinte comando no terminal:
+      - `npm run saucelabs:test`
 
-### Executar o teste de login no saucelabs
-```
-npm run web:test
-```
+### 12. Link do Board com os cenários de testes
+
+[WebdriverIo Arquitetura Processo Seletivo - WooCommerce](https://github.com/users/QuintilianoNery/projects/7)

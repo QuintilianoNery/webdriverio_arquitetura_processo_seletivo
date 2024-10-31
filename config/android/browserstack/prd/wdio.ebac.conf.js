@@ -1,7 +1,9 @@
+//Esta configuração é para executar com o BrowserStack, ainda não está funcionando, devido a falta de assinatura
+
 const { config } = require('../../../wdio.shared.conf')
 
 // Definitions for test execution
-const appUrl = 'bs://b34f689c74e1c8c038ff7ce6811e2fe31ac6fe48' // APP URL
+const appUrl = 'bs://' // APP URL
 const releaseName = 'Testes automatizados EBAC' // Example: Release 1.1.1
 const buildNumber = '1234' // buildNumber app
 const deviceName = 'Samsung Galaxy S10e'

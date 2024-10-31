@@ -15,10 +15,16 @@ exports.config = {
     framework: 'mocha',
     waitforTimeout: 5000,
     maxInstances: 10,
-    reporters: ['spec'],
+    reporters: ['spec',
+        ['allure', {
+            outputDir: 'allure-results',
+            disableWebdriverStepsReporting: true,
+            disableWebdriverScreenshotsReporting: true,
+        }]
+    ],
     capabilities: [
 
-        
+
         {
             "appium:deviceName": "samsung-galaxy-s20",
             "appium:platformName": "Android",

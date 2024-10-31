@@ -1,5 +1,6 @@
 const { loadElements, loadFixtures, loadAssertions } = require("../../functions/loadFunctions.js");
 const { login, logout } = require("../../functions/authFunctions.js");
+const { checkElementAndVisibleText, takeScreenshot } = require("../../functions/common.js");
 
 // Variáveis globais
 const element = loadElements()
@@ -23,7 +24,7 @@ describe('Login', () => {
         )
     })
 
-    it('Realizar login com sucesso', async () => {
+    it.only('Realizar login com sucesso', async () => {
         //Inserindo informações para a função Login 
         await login(
             element.home.btnSkip,
@@ -39,6 +40,8 @@ describe('Login', () => {
             element.login.inputPassword,
             fixture.login.valid.password,
         )
+        await checkElementAndVisibleText(element.myStoreHomePage.textEbacStore, assertion.myStoreHomePage.subTitleMyStoreHomePage);
+        await takeScreenshot();
     });
 });
 

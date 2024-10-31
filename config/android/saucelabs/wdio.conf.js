@@ -1,43 +1,56 @@
 const { join } = require('path')
+
+const platformName = 'Android'
+const app = 'storage:filename=woocommerce.apk'
+const build = 'appium-build-woocommerce'
+const deviceName = 'Android GoogleAPI Emulator'
+const deviceVersion = '10'
+const automationName = 'UiAutomator2'
+const user = 'oauth-quintiliano1995-c9d81'
+const key = 'da4e95fb-a740-4e67-ad58-aede786cca11'
+const hostname = 'ondemand.us-west-1.saucelabs.com'
+
 exports.config = {
     //
     // ====================
-    // Runner Configuration
+    // Configuration
     // ====================
-    // WebdriverIO supports running e2e tests as well as unit and component tests.
-    user: 'oauth-quintiliano1995-f722c',
-    key: '9e015af7-5700-42b3-8f86-3fe42adeb8b6',
-    hostname: 'ondemand.us-west-1.saucelabs.com',
+
+    user: `${user}`,
+    key: `${key}`,
+    hostname: `${hostname}`,
     port: 443,
 
-    // runner: 'local',
-    // hostname: 'localhost',
-    // baseUrl: 'http://localhost',
-    // port: 4723,
     path: '/wd/hub',
+    // baseUrl: 'wd/hub',
     specs: ['../../../tests/specs/android/**.spec.js'],
     framework: 'mocha',
     waitforTimeout: 5000,
     maxInstances: 10,
-    reporters: ['spec'],
+    reporters: ['spec',
+        ['allure', {
+            outputDir: 'allure-results',
+            disableWebdriverStepsReporting: true,
+            disableWebdriverScreenshotsReporting: true,
+        }]
+    ],
     capabilities: [
-
         {
-            platformName: 'Android',
-            'appium:app': 'storage:filename=woocommerce.apk',
-            'appium:deviceName': 'Samsung.*',
-            'appium:platformVersion': '10',
-            'appium:automationName': 'UiAutomator2',
-            "appium:disableIdLocatorAutocompletion": true,
+            platformName: `${platformName}`,
+            'appium:app': `${app}`,
+            'appium:deviceName': `${deviceName}`,
+            'appium:platformVersion': `${deviceVersion}`,
+            'appium:automationName': `${automationName}`,
+            'appium:disableIdLocatorAutocompletion': 'true',
             'sauce:options': {
-                build: 'appium-build-QUINTILIANO-EBAC',
-                name: 'Ebac Shop Teste',
+                build: `Build: ${build}`,
+                name: 'Ebac - WooCommerce',
                 deviceOrientation: 'PORTRAIT',
-                appiumVersion: '2.0.0'
+                appiumVersion: '2.0.0',
             },
             "appium:language": "pt",
             "appium:locale": "br",
-        }
+        },
     ],
     before: function () {
         return {
