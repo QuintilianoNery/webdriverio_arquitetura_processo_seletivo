@@ -4,40 +4,36 @@ exports.config = {
     // ====================
     // Runner Configuration
     // ====================
-    // WebdriverIO supports running e2e tests as well as unit and component tests.
-    user: 'oauth-quintiliano1995-f722c',
-    key: '9e015af7-5700-42b3-8f86-3fe42adeb8b6',
+
+    user: 'oauth-quintiliano1995-c9d81',
+    key: 'da4e95fb-a740-4e67-ad58-aede786cca11',
     hostname: 'ondemand.us-west-1.saucelabs.com',
     port: 443,
 
-    // runner: 'local',
-    // hostname: 'localhost',
-    // baseUrl: 'http://localhost',
-    // port: 4723,
     path: '/wd/hub',
+    // baseUrl: 'wd/hub',
     specs: ['../../../tests/specs/android/**.spec.js'],
     framework: 'mocha',
     waitforTimeout: 5000,
     maxInstances: 10,
     reporters: ['spec'],
     capabilities: [
-
         {
             platformName: 'Android',
             'appium:app': 'storage:filename=woocommerce.apk',
             'appium:deviceName': 'Samsung.*',
             'appium:platformVersion': '10',
             'appium:automationName': 'UiAutomator2',
-            "appium:disableIdLocatorAutocompletion": true,
+            'appium:disableIdLocatorAutocompletion': 'true',
             'sauce:options': {
-                build: 'appium-build-QUINTILIANO-EBAC',
-                name: 'Ebac Shop Teste',
+                build: 'appium-build-woocommerce',
+                name: 'Ebac - WooCommerce',
                 deviceOrientation: 'PORTRAIT',
-                appiumVersion: '2.0.0'
+                appiumVersion: '2.0.0',
             },
             "appium:language": "pt",
             "appium:locale": "br",
-        }
+        },
     ],
     before: function () {
         return {

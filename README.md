@@ -124,10 +124,8 @@
       - `npm run local:test`
 
 ### 11. Executar o teste de login no Sauce Labs
-   -  Para executar o testes no device farmexecute o seguinte comando no terminal:
-      - `npm run local:test`
-
-    obs.: A configuração para executar com o Sauce Labs, ainda será revisada, portando não está funcionando 
+   -  Para executar o testes no device farm execute o seguinte comando no terminal:
+      - `npm run saucelabs:test`
 
 ### 12. Link do Board com os cenários de testes
 

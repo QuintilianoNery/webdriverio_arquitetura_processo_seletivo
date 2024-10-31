@@ -6,7 +6,7 @@
   "scripts": {
     "get:apps": "node tests/functions/getApps.js",
     "local:test": "wdio run ./config/android/local/wdio.conf.js -- --spec tests/specs/android/login.spec.js",
-    "web:test": "wdio run ./config/android/local/sourceServe.conf.js -- --spec tests/specs/android/login.spec.js"
+    "saucelabs:test": "wdio run ./config/android/saucelabs/wdio.conf.js -- --spec tests/specs/android/login.spec.js"
   },
   "keywords": [
     "webdriverio",

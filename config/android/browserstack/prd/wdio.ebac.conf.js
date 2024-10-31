@@ -1,3 +1,5 @@
+//Esta configuração é para executar com o BrowserStack, ainda não está funcionando, devido a falta de assinatura
+
 const { config } = require('../../../wdio.shared.conf')
 
 // Definitions for test execution
