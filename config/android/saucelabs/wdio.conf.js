@@ -2,7 +2,7 @@ const { join } = require('path')
 
 const platformName = 'Android'
 const app = 'storage:filename=woocommerce.apk'
-const build = 'appium-build-woocommerce' 
+const build = 'appium-build-woocommerce'
 const deviceName = 'Android GoogleAPI Emulator'
 const deviceVersion = '10'
 const automationName = 'UiAutomator2'
@@ -27,7 +27,13 @@ exports.config = {
     framework: 'mocha',
     waitforTimeout: 5000,
     maxInstances: 10,
-    reporters: ['spec'],
+    reporters: ['spec',
+        ['allure', {
+            outputDir: 'allure-results',
+            disableWebdriverStepsReporting: true,
+            disableWebdriverScreenshotsReporting: true,
+        }]
+    ],
     capabilities: [
         {
             platformName: `${platformName}`,
