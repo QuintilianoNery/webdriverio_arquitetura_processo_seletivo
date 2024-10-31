@@ -1,4 +1,6 @@
 const { expect } = require('@wdio/globals');
+const { checkElementAndVisibleText, takeScreenshot } = require("../../tests/functions/common.js");
+
 
 exports.login = async (btnSkip, btnLoginStore, assertLoginStore, inputWebsiteAddress, fixWebsiteAddress, btnContinue, inputEmailAddress, fixValidUser, btnLoginContinue, avatarIcon, inputPassword, fixPassword) => {
     //Clicar no botão Skip Onboarding
@@ -25,14 +27,16 @@ exports.login = async (btnSkip, btnLoginStore, assertLoginStore, inputWebsiteAdd
     await $(btnContinue).click()
 }
 
-exports.logout = async (btnMenu, btnConfiguration, btnLogout, btnConformLogout, btnLoginStore) => {
+exports.logout = async (btnMenu, btnConfiguration, btnLogout, btnConfirmLogout, confirmLogout, btnLoginStore) => {
     //Logout com sucesso
     await $(btnMenu).waitForDisplayed({ timeout: 30000 })
     await $(btnMenu).isDisplayed({ timeout: 10000 })
     await $(btnMenu).click()
     await $(btnConfiguration).click()
     await $(btnLogout).click()
-    await $(btnConformLogout).isDisplayed()
-    await $(btnConformLogout).click()
+    await $(btnConfirmLogout).isDisplayed()
+    await checkElementAndVisibleText(btnConfirmLogout, confirmLogout);
+    await takeScreenshot();
+    await $(btnConfirmLogout).click()
     await $(btnLoginStore).isDisplayed()
 };

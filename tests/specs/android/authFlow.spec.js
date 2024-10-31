@@ -19,7 +19,7 @@ describe('Login', () => {
             element.menu.btnMenu,
             element.menu.btnConfiguration,
             element.menu.configuration.btnLogout,
-            element.menu.configuration.btnConformLogout,
+            element.menu.configuration.btnConfirmLogout,
             element.home.btnLoginStore
         )
     })
@@ -67,9 +67,11 @@ describe('Logout', () => {
             element.menu.btnMenu,
             element.menu.btnConfiguration,
             element.menu.configuration.btnLogout,
-            element.menu.configuration.btnConformLogout,
+            element.menu.configuration.btnConfirmLogout,
+            assertion.menu.configuration.confirmLogout,
             element.home.btnLoginStore
         )
+        await takeScreenshot();
     });
 });
 

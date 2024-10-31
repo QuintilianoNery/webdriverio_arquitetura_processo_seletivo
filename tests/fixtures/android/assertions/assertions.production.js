@@ -10,6 +10,11 @@ exports.assertionProductionAndroid = {
         },
         myStoreHomePage: {
             subTitleMyStoreHomePage: 'EBAC - Shop'
+        },
+        menu: {
+            configuration: {
+                confirmLogout: 'FAZER LOGOUT'
+            }
         }
     }
 }

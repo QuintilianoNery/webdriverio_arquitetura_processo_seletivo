@@ -26,7 +26,7 @@ exports.elementsAndroid = {
             btnConfiguration: '//android.view.View[@content-desc="Configurações"]',
             configuration: {
                 btnLogout: 'android=new UiScrollable(new UiSelector().scrollable(true)).scrollIntoView(new UiSelector().text("FAZER LOGOUT").resourceIdMatches(".*:id/btn_option_logout"))',
-                btnConformLogout: 'android=new UiSelector().resourceIdMatches(".*:id/button1")',
+                btnConfirmLogout: 'android=new UiSelector().resourceIdMatches(".*:id/button1")',
             }
         },
     }
