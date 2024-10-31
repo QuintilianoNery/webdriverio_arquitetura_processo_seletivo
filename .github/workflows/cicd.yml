@@ -1,6 +1,6 @@
 # Nome do workflow
 
-name: EBAC-MODULO-11
+name: Arquitetura Testes Mobile
 
 # Comantos de configuração.
 on:
@@ -37,7 +37,7 @@ jobs:
       #comandos necessários para executar a aplicação da mesma forma que no PC
       - run: npm init -y
       - run: npm install --yes
-      - run: npm run saucelabs:testAllure 
+      - run: npm run saucelabs:test 
         continue-on-error: true
 
       #Geração do relatório em HTML allure-report
