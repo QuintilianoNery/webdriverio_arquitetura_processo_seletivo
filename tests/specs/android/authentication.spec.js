@@ -1,11 +1,17 @@
 const { loadElements, loadFixtures, loadAssertions } = require("../../functions/loadFunctions.js");
 const { login, logout } = require("../../functions/authFunctions.js");
-const { checkElementAndVisibleText, takeScreenshot, deleteScreenshots } = require("../../functions/common.js");
+const { checkElementAndVisibleText, takeScreenshot, deleteScreenshots, deleteAllureReports } = require("../../functions/common.js");
 
 // Variáveis globais
 const element = loadElements()
 const fixture = loadFixtures()
 const assertion = loadAssertions()
+
+//Limpar ambiente
+before(async () => {
+    await deleteScreenshots();
+    await deleteAllureReports();
+})
 
 //Finaliza a sessão após executar cada teste
 afterEach(async () => {
@@ -13,10 +19,6 @@ afterEach(async () => {
 })
 
 describe('Login', () => {
-
-    beforeEach(async () => {
-        await deleteScreenshots();
-    })
 
     afterEach(async () => {
         //Inserindo informações para a função Logout
