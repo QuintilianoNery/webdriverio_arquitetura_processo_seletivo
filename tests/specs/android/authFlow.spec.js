@@ -45,34 +45,34 @@ describe('Login', () => {
     });
 });
 
-// describe('Logout', () => {
-//     beforeEach(async () => {
-//         await login(
-//             element.home.btnSkip,
-//             element.home.btnLoginStore,
-//             assertion.home.btnLoginStore,
-//             element.login.inputWebsiteAddress,
-//             fixture.websiteAddress,
-//             element.login.btnContinue,
-//             element.login.inputEmailAddress,
-//             fixture.login.valid.user,
-//             element.login.btnLoginContinue,
-//             element.login.avatarIcon,
-//             element.login.inputPassword,
-//             fixture.login.valid.password
-//         )
-//     })
-//     // it('Realizar logout com sucesso', async () => {
-//     //     await logout(
-//     //         element.menu.btnMenu,
-//     //         element.menu.btnConfiguration,
-//     //         element.menu.configuration.btnLogout,
-//     //         element.menu.configuration.btnConfirmLogout,
-//     //         element.home.btnLoginStore
-//     //     )
-//     //     await takeScreenshot();
-//     // });
-// });
+describe('Logout', () => {
+    beforeEach(async () => {
+        await login(
+            element.home.btnSkip,
+            element.home.btnLoginStore,
+            assertion.home.btnLoginStore,
+            element.login.inputWebsiteAddress,
+            fixture.websiteAddress,
+            element.login.btnContinue,
+            element.login.inputEmailAddress,
+            fixture.login.valid.user,
+            element.login.btnLoginContinue,
+            element.login.avatarIcon,
+            element.login.inputPassword,
+            fixture.login.valid.password
+        )
+    })
+    it('Realizar logout com sucesso', async () => {
+        await logout(
+            element.menu.btnMenu,
+            element.menu.btnConfiguration,
+            element.menu.configuration.btnLogout,
+            element.menu.configuration.btnConfirmLogout,
+            element.home.btnLoginStore
+        )
+        await takeScreenshot();
+    });
+});
 
 //Obs.: Foram criados dois testes, um para login e outro para logout, porém no dia a dia o ideal seria em apenas um teste realizar as as duas funcionalidades
 //Porém como eu estava testando a função, resolvi criar testes apartados
