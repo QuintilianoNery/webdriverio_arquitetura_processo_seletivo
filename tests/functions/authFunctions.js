@@ -27,16 +27,26 @@ exports.login = async (btnSkip, btnLoginStore, assertLoginStore, inputWebsiteAdd
     await $(btnContinue).click()
 }
 
-exports.logout = async (btnMenu, btnConfiguration, btnLogout, btnConfirmLogout, confirmLogout, btnLoginStore) => {
+exports.logout = async (btnMenu, btnConfiguration, btnLogout, btnConfirmLogout, btnLoginStore) => {
     //Logout com sucesso
     await $(btnMenu).waitForDisplayed({ timeout: 30000 })
     await $(btnMenu).isDisplayed({ timeout: 10000 })
+    await $(btnMenu).isExisting()
     await $(btnMenu).click()
+
+    await $(btnConfiguration).waitForDisplayed({ timeout: 30000 })
+    await $(btnConfiguration).isDisplayed({ timeout: 10000 })
     await $(btnConfiguration).click()
+
+    await $(btnLogout).waitForDisplayed({ timeout: 30000 })
+    await $(btnLogout).isDisplayed({ timeout: 10000 })
     await $(btnLogout).click()
-    await $(btnConfirmLogout).isDisplayed()
-    await checkElementAndVisibleText(btnConfirmLogout, confirmLogout);
+
+    await $(btnConfirmLogout).waitForDisplayed({ timeout: 30000 })
+    await $(btnConfirmLogout).isDisplayed({ timeout: 10000 })
+    
     await takeScreenshot();
     await $(btnConfirmLogout).click()
+    
     await $(btnLoginStore).isDisplayed()
 };

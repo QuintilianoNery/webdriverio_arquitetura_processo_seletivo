@@ -9,6 +9,7 @@
     "local:testAllure": "wdio run ./config/android/local/wdio.conf.js -- --spec tests/specs/android/login.spec.js && allure generate allure-results --clean && allure open",
     "saucelabs:test": "wdio run ./config/android/saucelabs/wdio.conf.js -- --spec tests/specs/android/login.spec.js",
     "saucelabs:testAllure": "wdio run ./config/android/saucelabs/wdio.conf.js -- --spec tests/specs/android/login.spec.js && allure generate allure-results --clean && allure open",
+    "bs:testAllure": "wdio run ./config/android/browserstack/prd/wdio.conf.js -- --spec tests/specs/android/login.spec.js && allure generate allure-results --clean && allure open",
     "allureGenerate:test": "allure generate allure-results --clean && allure open"
   },
   "keywords": [
